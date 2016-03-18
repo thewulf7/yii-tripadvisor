@@ -40,17 +40,12 @@ class Command extends Component
     {
         $query = http_build_query($this->queryParams);
 
-        $content = $this->db->makeRequest($query, $this->getDomain());
+        $content = $this->db->makeRequest($query, $this->db->getDomain($this->lang));
 
         $arResult = json_decode($content);
 
         return array_map(function($arItem){
             return new Object($arItem);
         },$arResult['results']);
-    }
-
-    protected function getDomain()
-    {
-        return 'com';
     }
 }

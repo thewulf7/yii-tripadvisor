@@ -18,10 +18,7 @@ use \yii\base\Component;
  */
 class Connection extends Component
 {
-    /**
-     * @var string
-     */
-    protected $url = "http://www.tripadvisor.";
+    const URL = "http://www.tripadvisor.";
 
     /**
      * @var string
@@ -64,8 +61,13 @@ class Connection extends Component
      */
     public function makeRequest($query, $domain = 'com')
     {
-        $baseUrl = $this->url . $domain . DIRECTORY_SEPARATOR . $this->path . '?';
+        $baseUrl = self::URL . $domain . DIRECTORY_SEPARATOR . $this->path . '?';
 
         return file_get_contents($baseUrl . $query);
+    }
+
+    public static function getDomain($lang = 'en')
+    {
+        return 'com';
     }
 }

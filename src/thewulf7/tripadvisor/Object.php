@@ -9,6 +9,8 @@
 namespace thewulf7\tripadvisor;
 
 
+use PHPHtmlParser\Dom;
+
 /**
  * Class Object
  *
@@ -64,8 +66,14 @@ class Object extends \yii\base\Object
     /**
      * @return string
      */
-    public function getContent()
+    public function getContent($lang = 'en')
     {
-        return '';
+        $baseUrl = Connection::URL . Connection::getDomain($lang);
+
+        $dom = new Dom();
+        $dom->loadFromUrl($baseUrl . $this->url);
+        $html = $dom->find('.ermb_text .content');
+
+        return $html[0]->text;
     }
 }
