@@ -224,34 +224,48 @@ class Query extends Component implements QueryInterface
 
     /**
      * @param null $db
+     *
+     * @return array
      */
     public function all($db = null)
     {
-        $result = $this->createCommand($db)->search();
+        return $this->createCommand($db)->search();
     }
 
     /**
      * @param null $db
+     *
+     * @return array|bool|null
      */
     public function one($db = null)
     {
         $result = $this->createCommand($db)->search();
+
+        return isset($result[0]) ? $result[0] : null;
     }
 
     /**
      * @param string $q
      * @param null   $db
+     *
+     * @return int
      */
     public function count($q = '*', $db = null)
     {
         $result = $this->createCommand($db)->search();
+
+        return count($result);
     }
 
     /**
      * @param null $db
+     *
+     * @return bool
      */
     public function exists($db = null)
     {
         $result = $this->createCommand($db)->search();
+
+        return count($result) > 0;
     }
 }

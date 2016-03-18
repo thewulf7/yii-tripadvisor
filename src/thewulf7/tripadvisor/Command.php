@@ -42,7 +42,11 @@ class Command extends Component
 
         $content = $this->db->makeRequest($query, $this->getDomain());
 
-        return json_decode($content);
+        $arResult = json_decode($content);
+
+        return array_map(function($arItem){
+            return new Object($arItem);
+        },$arResult['results']);
     }
 
     protected function getDomain()
