@@ -11,19 +11,29 @@ namespace thewulf7\tripadvisor;
 
 use \yii\base\Component;
 
+/**
+ * Class Connection
+ *
+ * @package thewulf7\tripadvisor
+ */
 class Connection extends Component
 {
     /**
      * @var string
      */
-    protected $url = "http://www.tripadvisor.com/TypeAheadJson";
+    protected $url = "http://www.tripadvisor.";
+
+    /**
+     * @var string
+     */
+    protected $path = 'TypeAheadJson';
 
     /**
      *
      */
     public function init()
     {
-
+        //init here
     }
 
     /**
@@ -44,5 +54,18 @@ class Connection extends Component
     public function getQueryBuilder()
     {
         return new QueryBuilder($this);
+    }
+
+    /**
+     * @param array $query
+     * @param string $domain
+     *
+     * @return string
+     */
+    public function makeRequest($query, $domain = 'com')
+    {
+        $baseUrl = $this->url . $domain . DIRECTORY_SEPARATOR . $this->path . '?';
+
+        return file_get_contents($baseUrl . $query);
     }
 }
