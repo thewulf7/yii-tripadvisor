@@ -8,7 +8,6 @@
 
 namespace thewulf7\tripadvisor;
 
-
 use yii\base\Component;
 
 /**
@@ -34,18 +33,39 @@ class Command extends Component
     public $lang = 'en';
 
     /**
+     * @param string   $string
+     * @param string   $type
+     * @param string $lang
      *
+     * @return array
      */
-    public function search()
+    public function search($string = false, $type = false, $lang = 'en')
     {
+        if ($string)
+        {
+            $query = new Query();
+
+            $query
+                ->setAction()
+                ->setQuery($string)
+                ->setLang($lang)
+                ->addType($type ?: 'geo');
+
+            $params = $this->db->getQueryBuilder()->build($query);
+
+            $this->queryParams = $params['queryParams'];
+            $this->lang        = $params['lang'];
+        }
+
         $query = http_build_query($this->queryParams);
 
         $content = $this->db->makeRequest($query, $this->db->getDomain($this->lang));
 
-        $arResult = json_decode($content);
+        $arResult = json_decode($content, true);
 
-        return array_map(function($arItem){
+        return array_map(function ($arItem)
+        {
             return new Object($arItem);
-        },$arResult['results']);
+        }, $arResult['results']);
     }
 }

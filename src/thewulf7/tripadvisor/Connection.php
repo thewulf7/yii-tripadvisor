@@ -54,7 +54,7 @@ class Connection extends Component
     }
 
     /**
-     * @param array $query
+     * @param array  $query
      * @param string $domain
      *
      * @return string
@@ -66,8 +66,24 @@ class Connection extends Component
         return file_get_contents($baseUrl . $query);
     }
 
+    /**
+     * @param string $lang
+     *
+     * @return string
+     */
     public static function getDomain($lang = 'en')
     {
-        return 'com';
+        switch ($lang)
+        {
+            case 'ru':
+                $sResult = 'ru';
+                break;
+            case 'en':
+            default:
+                $sResult = 'com';
+                break;
+        }
+
+        return $sResult;
     }
 }
