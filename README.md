@@ -29,9 +29,9 @@ Begin by installing this package through Composer.
 **Retrieve data**
 
 ```php
-$wiki = \Yii::$app->get('tripadvisor');
+$trip = \Yii::$app->get('tripadvisor');
     
-return $wiki->createCommand()->search('Moscow');
+return $trip->createCommand()->search('Moscow');
 ```
 
 **Same with QueryBuilder**
