@@ -1,5 +1,7 @@
 # Yii-tripadvisor
 
+[![Codeship Status for thewulf7/yii-tripadvisor](https://codeship.com/projects/5b96d6b0-dd45-0133-4b20-2682daabcfd0/status?branch=master)](https://codeship.com/projects/144335)
+
 ### Installation
 
 Begin by installing this package through Composer.
