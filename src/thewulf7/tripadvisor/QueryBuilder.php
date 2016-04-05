@@ -12,6 +12,11 @@ namespace thewulf7\tripadvisor;
 class QueryBuilder extends \yii\base\Object
 {
     /**
+     * @var Connection
+     */
+    public $db;
+
+    /**
      * QueryBuilder constructor.
      *
      * @param Connection $connection

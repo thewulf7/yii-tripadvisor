@@ -41,6 +41,11 @@ class Object extends \yii\base\Object
     /**
      * @var string
      */
+    public $url_type;
+
+    /**
+     * @var string
+     */
     public $scope;
 
     /**
@@ -62,6 +67,23 @@ class Object extends \yii\base\Object
      * @var array
      */
     public $urls;
+
+    /**
+     * @var string
+     */
+    public $lookbackServlet;
+
+    /**
+     * @var string
+     */
+    public $title;
+
+    /**
+     * @var string
+     */
+    public $war_url;
+
+    public $address;
 
     /**
      * @return string
