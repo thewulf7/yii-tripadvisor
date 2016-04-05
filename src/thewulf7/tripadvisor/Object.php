@@ -96,6 +96,6 @@ class Object extends \yii\base\Object
         $dom->loadFromUrl($baseUrl . $this->url);
         $html = $dom->find('.ermb_text .content');
 
-        return $html[0]->text;
+        return isset($html[0]) ? trim($html[0]->text) : false;
     }
 }

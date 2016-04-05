@@ -139,4 +139,22 @@ class QueryTest extends PHPUnit_Framework_TestCase
 
         self::assertInstanceOf(\thewulf7\tripadvisor\Object::className(), $searchResult);
     }
+
+    public function testContent()
+    {
+        $query = new \thewulf7\tripadvisor\Query();
+
+        $query
+            ->setAction()
+            ->setLang('ru')
+            ->addType('geo')
+            ->setQuery('Prague')
+            ->setDetails(false);
+
+
+        /** @var \thewulf7\tripadvisor\Object $searchResult */
+        $searchResult = $query->one($this->tripAdvisor);
+
+        self::assertNotEmpty($searchResult->getContent('en'));
+    }
 }
