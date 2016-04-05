@@ -9,7 +9,7 @@ Begin by installing this package through Composer.
 ```js
 {
     "require": {
-        "thewulf7/yii-tripadvisor": "dev-master"
+        "thewulf7/tripadvisor": "dev-master"
     }
 }
 ```
