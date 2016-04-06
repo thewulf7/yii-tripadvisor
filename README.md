@@ -40,7 +40,10 @@ return $trip->createCommand()->search('Moscow');
 $query = new \thewulf7\tripadvisor\Query();
 
 $query
-    ->titles('Moscow');
+    ->setAction()
+    ->addType('geo')
+    ->setQuery('Moscow')
+    ->setDetails(false);
 
 return $query
     ->createCommand()
