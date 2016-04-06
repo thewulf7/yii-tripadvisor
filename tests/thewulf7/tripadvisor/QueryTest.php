@@ -49,7 +49,7 @@ class QueryTest extends PHPUnit_Framework_TestCase
 
         $query
             ->setAction()
-            ->setLang('ru')
+            ->setLang('rus')
             ->addType('geo')
             ->setQuery('Москва')
             ->setDetails(false);
@@ -75,7 +75,7 @@ class QueryTest extends PHPUnit_Framework_TestCase
 
             $query
                 ->setAction()
-                ->setLang('ru')
+                ->setLang('rus')
                 ->addType($type)
                 ->setQuery('New York')
                 ->setDetails(false);
@@ -112,7 +112,7 @@ class QueryTest extends PHPUnit_Framework_TestCase
 
         $query
             ->setAction()
-            ->setLang('ru')
+            ->setLang('rus')
             ->addType('geo')
             ->setQuery('empty')
             ->setDetails(false);
@@ -129,7 +129,7 @@ class QueryTest extends PHPUnit_Framework_TestCase
 
         $query
             ->setAction()
-            ->setLang('ru')
+            ->setLang('rus')
             ->addType('geo')
             ->setQuery('Prague')
             ->setDetails(false);
@@ -146,7 +146,7 @@ class QueryTest extends PHPUnit_Framework_TestCase
 
         $query
             ->setAction()
-            ->setLang('ru')
+            ->setLang('rus')
             ->addType('geo')
             ->setQuery('Prague')
             ->setDetails(false);
@@ -155,6 +155,6 @@ class QueryTest extends PHPUnit_Framework_TestCase
         /** @var \thewulf7\tripadvisor\Object $searchResult */
         $searchResult = $query->one($this->tripAdvisor);
 
-        self::assertNotEmpty($searchResult->getContent('en'));
+        self::assertNotEmpty($searchResult->getContent('eng'));
     }
 }

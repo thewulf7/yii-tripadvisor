@@ -38,7 +38,7 @@ class CommandTest extends PHPUnit_Framework_TestCase
     public function testCommandWithDifferentLang()
     {
         //russian
-        $searchResults = $this->tripAdvisor->createCommand()->search('Москва', 'geo', 'ru');
+        $searchResults = $this->tripAdvisor->createCommand()->search('Москва', 'geo', 'rus');
 
         self::assertNotEmpty($searchResults);
         self::assertInstanceOf(\thewulf7\tripadvisor\Object::className(), $searchResults[0]);
