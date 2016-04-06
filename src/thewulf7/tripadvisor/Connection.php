@@ -18,6 +18,9 @@ use \yii\base\Component;
  */
 class Connection extends Component
 {
+    /**
+     *
+     */
     const URL = "http://www.tripadvisor.";
 
     /**
@@ -71,14 +74,35 @@ class Connection extends Component
      *
      * @return string
      */
-    public static function getDomain($lang = 'en')
+    public static function getDomain($lang = 'eng')
     {
         switch ($lang)
         {
-            case 'ru':
+            case 'deu':
+                $sResult = 'de';
+                break;
+            case 'zho':
+                $sResult = 'cn';
+                break;
+            case 'tur':
+                $sResult = 'com.tr';
+                break;
+            case 'ita':
+                $sResult = 'it';
+                break;
+            case 'spa':
+                $sResult = 'es';
+                break;
+            case 'fra':
+                $sResult = 'fr';
+                break;
+            case 'jpn':
+                $sResult = 'jp';
+                break;
+            case 'rus':
                 $sResult = 'ru';
                 break;
-            case 'en':
+            case 'eng':
             default:
                 $sResult = 'com';
                 break;

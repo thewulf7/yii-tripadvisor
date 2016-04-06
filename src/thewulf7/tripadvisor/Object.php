@@ -83,12 +83,15 @@ class Object extends \yii\base\Object
      */
     public $war_url;
 
+    /**
+     * @var string
+     */
     public $address;
 
     /**
      * @return string
      */
-    public function getContent($lang = 'en')
+    public function getContent($lang = 'eng')
     {
         $baseUrl = Connection::URL . Connection::getDomain($lang);
 

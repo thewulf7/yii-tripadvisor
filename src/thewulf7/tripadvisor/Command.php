@@ -30,7 +30,7 @@ class Command extends Component
     /**
      * @var string
      */
-    public $lang = 'en';
+    public $lang = 'eng';
 
     /**
      * @param string   $string
@@ -39,7 +39,7 @@ class Command extends Component
      *
      * @return array
      */
-    public function search($string = false, $type = false, $lang = 'en')
+    public function search($string = false, $type = false, $lang = 'eng')
     {
         if ($string)
         {
