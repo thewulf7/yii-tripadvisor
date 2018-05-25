@@ -9,6 +9,7 @@
 namespace thewulf7\tripadvisor;
 
 use yii\base\Component;
+use yii\base\Object;
 
 /**
  * Class Command
@@ -65,7 +66,7 @@ class Command extends Component
 
         return array_map(function ($arItem)
         {
-            return new \Object($arItem);
+            return new Object($arItem);
         }, $arResult['results']);
     }
 }
