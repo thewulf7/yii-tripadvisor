@@ -51,3 +51,5 @@ return $query
 ```
 
 **More examples in tests forlder**
+
+**Issues with existing library**
